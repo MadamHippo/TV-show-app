@@ -1,8 +1,13 @@
 <div style="text-align: center;">
-  <h1>
+  <mat-toolbar color="primary">
     The TV Box
-  </h1>
+  </mat-toolbar>
   <div>Search For Your Favorite Show!</div>
+  <div>
+    <app-show-search (searchEvent) ="doSearch($event)"></app-show-search>
+  </div>
   <h2>Search Now</h2>
-  <app-feature-shows></app-feature-shows>
+  <mat-card color="primary">
+    <app-feature-shows [current] = "currentSearch"></app-feature-shows>
+</mat-card>
 </div>

@@ -1,0 +1,11 @@
+<form>
+  <mat-form-field>
+    <mat-icon matPrefix>search</mat-icon>
+    <input matInput placeholder="Enter show title" [formControl]="search" />
+    <mat-hint>You can search by title or show ID</mat-hint>
+
+    <mat-error *ngIf="search.invalid"> <!-- conditional html binding. Go to node modules to find a glossary of other features-->
+      Type a minimum of 2 characters to search
+    </mat-error>
+  </mat-form-field>
+</form>

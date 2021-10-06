@@ -3,7 +3,7 @@ export interface IFeatureShowsData {
     id: number,
     name: string,
     language: string,
-    genres: Array<String>,
+    genres: Array<string>,
     status: string,
     runtime: number,
     rating: {
