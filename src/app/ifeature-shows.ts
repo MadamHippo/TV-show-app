@@ -8,5 +8,5 @@ export interface IFeatureShows {
   rating: number;
   image: string;
   summary: string;
-  network: string;
+  network?: string;
 }

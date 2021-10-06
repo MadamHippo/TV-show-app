@@ -4,6 +4,7 @@ import { IFeatureShowsData } from './ifeature-shows-data';
 import { environment } from 'src/environments/environment';
 import { IFeatureShows } from './ifeature-shows';
 import { map } from 'rxjs/operators';
+import { defaultRippleAnimationConfig } from '@angular/material/core';
 
 
 @Injectable({
@@ -29,19 +30,47 @@ export class ShowsService {
       )
 
   }
+  
+  /* how to transform IFeatureShows (type = array) into the data we want using map to return a 1 to 1.*/
+  
+  private transformToIFeatureShows(data: Array<IFeatureShowsData>): Array<IFeatureShows>{ /* data is parameter and IFeatureShowsData is a type reqiured by Typescript */
+    let shows = []
 
-  private transformToIFeatureShows(data: Array<IFeatureShowsData>): IFeatureShows{ /* data is parameter and IFeatureShowsData is a type reqiured by Typescript */
-    return {
-      id: data[0].show.id,
-      name: data[0].show.name,
-      language: data[0].show.language,
-      genres: data[0].show.genres,
-      status: data[0].show.status,
-      runtime: data[0].show.runtime,
-      rating: data[0].show.rating.average,
-      image: `https://static.tvmaze.com/uploads/images/medium_portrait/${data[0].show.image}.jpg`,
-      summary: data[0].show.summary,
-      network: data[0].show.network.name
+  /* null guarding because network element could be often empty */
+
+    for (let element of data) {
+      let networkElement = "";
+      let ratingElement = 0;
+      let genreElement = [];
+
+      if (element.show.network) {
+        networkElement = element.show.network.name;
+      }
+
+      if (element.show.rating) {
+        ratingElement = element.show.rating.average;
+      }
+
+      if (element.show.genres) {
+        genreElement = element.show.genres;
+      }
+
+
+      shows.push(
+        {
+          id: element.show.id,
+          name: element.show.name,
+          language: element.show.language,
+          genres: element.show.genres,
+          status: element.show.status,
+          runtime: element.show.runtime,
+          rating: element.show.rating.average,
+          image: element.show.image.medium,
+          summary: element.show.summary,
+          network: networkElement
+        })
     }
+
+    return shows
   }
 }

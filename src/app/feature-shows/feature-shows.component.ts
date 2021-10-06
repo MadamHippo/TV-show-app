@@ -7,21 +7,10 @@ import { IFeatureShows } from '../ifeature-shows';
   styleUrls: ['./feature-shows.component.css']
 })
 export class FeatureShowsComponent implements OnInit {
-  @Input() current: IFeatureShows
+  @Input() current: Array<IFeatureShows>
 
   constructor() {
-    this.current = {
-      id: 0,
-      name:'',
-      language:'',
-      genres: [],
-      status:'',
-      runtime: 0,
-      rating: 0,
-      image: ``,
-      summary:'',
-      network:''
-    }
+    this.current = []
   }
 
   ngOnInit(): void { }

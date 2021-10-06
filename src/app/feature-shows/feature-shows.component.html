@@ -1,13 +1,18 @@
-<div *ngIf="current">
-  <div>
-    <span>{{current.name}} | {{current.genres}}</span><br> <!-- null guarding -->
-    <span>{{current.runtime}} | {{current.rating}}</span><br>
-  </div>
-  <div>
-    <img [src]='current.image'>
-    <span>{{current.network}} | {{current.language}} | {{current.status}}</span>
-  </div>
-  <div>
-    {{current.summary}}
+<div class = "container" *ngIf="current">
+  <div *ngFor="let show of current">
+    <div class="show-name">
+      <span>{{show.name}}</span>
+    </div><!-- null guarding -->
+    <div class="show-details">
+      <span>Runtime: {{show.runtime}} | Show Rating: {{show.rating}} | Genre: {{show.genres}}</span>
+      <p>
+      <span>Network: {{show.network}} | Language: {{show.language}} | Status: {{show.status}}</span>
+    </div>
+    <div>
+      <br><img [src]='show.image'>
+    </div>
+    <div class="summary">
+      {{show.summary}}
+    </div>
   </div>
 </div>
