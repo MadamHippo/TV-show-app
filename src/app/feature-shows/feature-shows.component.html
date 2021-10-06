@@ -1,15 +1,15 @@
 <div class = "container" *ngIf="current">
-  <div *ngFor="let show of current">
+  <div *ngFor="let show of current"> <!-- *ngFor is a directive that changes the structure of the DOM. It repeats a given html element once in every item in the array. Can be anything that is iterable in a for of loop, and can be nested.-->
     <div class="show-name">
-      <span>{{show.name}}</span>
+      <mat-card><span>{{show.name}}</span></mat-card>
     </div><!-- null guarding -->
     <div class="show-details">
-      <span>Runtime: {{show.runtime}} | Show Rating: {{show.rating}} | Genre: {{show.genres}}</span>
+      <span>Runtime: {{show.runtime  + " minutes"}} | Show Rating: {{"IMDB: " + show.rating + "/10"}} | Genre: {{show.genres[0] + ", " + show.genres[1] + ", " + show.genres[2]}}</span>
       <p>
       <span>Network: {{show.network}} | Language: {{show.language}} | Status: {{show.status}}</span>
     </div>
     <div>
-      <br><img [src]='show.image'>
+      <img [src]='show.image'>
     </div>
     <div class="summary">
       {{show.summary}}
