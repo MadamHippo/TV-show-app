@@ -73,9 +73,10 @@ export class ShowsService {
     /* null guarding because network element could be often empty */
 
     for (let element of data) {
-      let networkElement = '';
+      let networkElement = 'N/A';
+      let imageUrl = '';
       let ratingElement = 0;
-      let genreElement = [];
+      let genres: string[] = ['N/A'];
 
       if (element.show.network) {
         networkElement = element.show.network.name;
@@ -85,19 +86,22 @@ export class ShowsService {
         ratingElement = element.show.rating.average;
       }
 
-      if (element.show.genres) {
-        genreElement = element.show.genres;
+      if (element.show.genres && element.show.genres.length > 0) {
+        genres = element.show.genres;
+      }
+      if (element.show.image != null) {
+        imageUrl = element.show.image.medium
       }
 
       shows.push({
         id: element.show.id,
         name: element.show.name,
         language: element.show.language,
-        genres: element.show.genres,
+        genres: genres,
         status: element.show.status,
         runtime: element.show.runtime,
         rating: element.show.rating.average,
-        image: element.show.image.medium,
+        image: imageUrl,
         summary: this.trimSummary(element.show.summary),
         network: networkElement,
       });
