@@ -16,6 +16,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { MainPageComponent } from './main-page/main-page.component';
 
 
 
@@ -24,7 +25,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
   declarations: [
     AppComponent,
     FeatureShowsComponent,
-    ShowSearchComponent
+    ShowSearchComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,

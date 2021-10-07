@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IFeatureShowsData } from './ifeature-shows-data';
+import { IFeatureScheduleResult } from './ifeature-schedule-result';
 import { environment } from 'src/environments/environment';
 import { IFeatureShows } from './ifeature-shows';
+
 import { map } from 'rxjs/operators';
 import { defaultRippleAnimationConfig } from '@angular/material/core';
 
@@ -13,6 +15,23 @@ export class ShowsService {
   constructor(
     private httpClient: HttpClient
   ) {} /* say what type it is for typescript */
+
+  getTodaysShows() {
+    let uriParams = '';
+
+    const todayDate: Date = new Date();
+
+    let dateUri = todayDate.toISOString().split('T')[0];
+
+    uriParams = `/schedule/web?date=${dateUri}`
+    
+    return this.httpClient
+      .get<Array<IFeatureScheduleResult>>(
+        `https://api.tvmaze.com/${uriParams}&country=US&appid=${environment.appId}`
+      )
+      .pipe(map((data) =>  data.map(result => result['_embedded'])))
+      .pipe(map((data) => this.transformToIFeatureShows(data)));
+  }
 
   /* search shows by search keyword */
 
@@ -71,7 +90,7 @@ export class ShowsService {
     let shows = [];
 
     /* null guarding because network element could be often empty */
-
+    console.log(data);
     for (let element of data) {
       let networkElement = 'N/A';
       let imageUrl = '';

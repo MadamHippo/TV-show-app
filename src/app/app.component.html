@@ -1,10 +1,13 @@
 <div style="text-align: center;">
   <mat-toolbar color="primary">
     <img class ="logo" src="assets/logo/KalAcademyTVShow.png" />
-    <div class="toolbar-title">
+    <div class="toolbar-title" onclick="location.href='/';">
     The TV Box
     </div>
   </mat-toolbar>
+
+
+
   <div class="search-text"><h1>Search For Your Favorite Show!</h1></div>
   <div>
     <app-show-search (searchEvent) ="doSearch($event)"></app-show-search>
@@ -12,6 +15,17 @@
   <h2>Search Now</h2>
   
   <mat-card color="primary">
+    <div *ngIf="!displayTodayShows">
+      <h1>Search results</h1>
+    </div>
+
     <app-feature-shows [current] = "currentSearch"></app-feature-shows>
-</mat-card>
+  </mat-card>
+
+  <div class="todays-shows">
+    <div *ngIf="displayTodayShows">
+      <h1>Popular shows in US today</h1>
+    <app-feature-shows [current] = "todaysShows"></app-feature-shows>
+    </div>
+  </div>
 </div>
