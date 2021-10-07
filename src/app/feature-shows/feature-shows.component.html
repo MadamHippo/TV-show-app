@@ -1,18 +1,31 @@
-<div class = "container" *ngIf="current">
+<div class = "container" *ngIf="current"><!-- null guarding -->
   <div *ngFor="let show of current"> <!-- *ngFor is a directive that changes the structure of the DOM. It repeats a given html element once in every item in the array. Can be anything that is iterable in a for of loop, and can be nested.-->
     <div class="show-name">
       <mat-card><span>{{show.name}}</span></mat-card>
-    </div><!-- null guarding -->
-    <div class="show-details">
-      <span>Runtime: {{show.runtime  + " minutes"}} | Show Rating: {{"IMDB: " + show.rating + "/10"}} | Genre: {{show.genres[0] + ", " + show.genres[1] + ", " + show.genres[2]}}</span>
-      <p>
-      <span>Network: {{show.network}} | Language: {{show.language}} | Status: {{show.status}}</span>
     </div>
+    <div class="show-details">
+      <span>Runtime: {{show.runtime  + " minutes"}} | <mat-icon aria-hidden="false" aria-label="star" color="primary">star</mat-icon> Show Rating: {{"IMDB: " + show.rating + "/10"}} | Genre: {{show.genres[0] + ", " + show.genres[1] + ", " + show.genres[2]}}</span>
+      <br>
+      <br>
+      <span>Network: {{show.network}} | Language: {{show.language}} | Status: {{show.status}}</span></div>
     <div>
       <img [src]='show.image'>
     </div>
-    <div class="summary">
-      {{show.summary}}
-    </div>
+    <br>
+    <br>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <div id="title-summary">Expand Summary</div>
+      </mat-expansion-panel-header>
+      <ng-template matExpansionPanelContent>
+       <div class="summary"><p>{{show.summary}}</p>
+      </div>
+      </ng-template>
+    </mat-expansion-panel>
+    <br>
+    <br>
+
+    
   </div>
 </div>
+

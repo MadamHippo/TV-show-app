@@ -45,8 +45,8 @@ export class ShowsService {
     let words;
 
     words = stripperSummary.split(' ');
-    if (words.length > 20) {
-      finalSummary = words.slice(0, 20).join(' ') + '...';
+    if (words.length > 150) {
+      finalSummary = words.slice(0, 150).join(' ') + '...';
       return finalSummary;
     } else {
       return stripperSummary;
@@ -60,6 +60,7 @@ export class ShowsService {
   }
   return stripperSummary;
 }; */
+
 
   /* how to transform IFeatureShows (type = array) into the data we want using map to return a 1 to 1.*/
 

@@ -1,5 +1,6 @@
 <div style="text-align: center;">
   <mat-toolbar color="primary">
+    <img class ="logo" src="assets/logo/KalAcademyTVShow.png" />
     <div class="toolbar-title">
     The TV Box
     </div>
@@ -9,6 +10,7 @@
     <app-show-search (searchEvent) ="doSearch($event)"></app-show-search>
   </div>
   <h2>Search Now</h2>
+  
   <mat-card color="primary">
     <app-feature-shows [current] = "currentSearch"></app-feature-shows>
 </mat-card>

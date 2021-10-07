@@ -5,8 +5,14 @@
 .mat-toolbar {
   background: #0092f3;
   color: #fff
+  
 }
 
 .toolbar-title {
   padding: 20px;
+}
+
+.logo {
+  height: auto;
+  width: 55px;
 }
