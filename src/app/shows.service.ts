@@ -31,6 +31,25 @@ export class ShowsService {
 
   }
   
+
+// shorten summary //
+
+private trimSummary(summary: string) {
+  let stripperSummary = summary.replace(/(&nbsp;|<([^>]+)>)/ig, ""); 
+
+// match an open < and anyting except > and then also remove >
+
+  if (stripperSummary.length > 300) {
+    return stripperSummary.slice(0, 300) + '...';
+  }
+  return stripperSummary;
+};
+
+
+
+
+
+
   /* how to transform IFeatureShows (type = array) into the data we want using map to return a 1 to 1.*/
   
   private transformToIFeatureShows(data: Array<IFeatureShowsData>): Array<IFeatureShows>{ /* data is parameter and IFeatureShowsData is a type reqiured by Typescript */
@@ -66,7 +85,7 @@ export class ShowsService {
           runtime: element.show.runtime,
           rating: element.show.rating.average,
           image: element.show.image.medium,
-          summary: element.show.summary,
+          summary: this.trimSummary(element.show.summary),
           network: networkElement
         })
     }
