@@ -6,59 +6,73 @@ import { IFeatureShows } from './ifeature-shows';
 import { map } from 'rxjs/operators';
 import { defaultRippleAnimationConfig } from '@angular/material/core';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ShowsService {
-
-  constructor(private httpClient: HttpClient) { } /* say what type it is for typescript */
+  constructor(
+    private httpClient: HttpClient
+  ) {} /* say what type it is for typescript */
 
   /* search shows by search keyword */
 
-  getShows(searchWord: string|number, id?: number){
+  getShows(searchWord: string | number, id?: number) {
     let uriParams = '';
 
-    if (typeof searchWord === 'string'){
-      uriParams = `search/shows?q=${searchWord}`
+    if (typeof searchWord === 'string') {
+      uriParams = `search/shows?q=${searchWord}`;
     } else {
-      uriParams = `lookup/shows?imdb=${id}`
+      uriParams = `lookup/shows?imdb=${id}`;
     }
 
-    return this.httpClient.get<Array<IFeatureShowsData>>(`https://api.tvmaze.com/${uriParams}&appid=${environment.appId}`).pipe(
-      map(data => this.transformToIFeatureShows(data))
+    return this.httpClient
+      .get<Array<IFeatureShowsData>>(
+        `https://api.tvmaze.com/${uriParams}&appid=${environment.appId}`
       )
-
+      .pipe(map((data) => this.transformToIFeatureShows(data)));
   }
-  
 
-// shorten summary //
+  // shorten summary //
 
-private trimSummary(summary: string) {
-  let stripperSummary = summary.replace(/(&nbsp;|<([^>]+)>)/ig, ""); 
+  private trimSummary(summary: string) {
+    let stripperSummary = summary.replace(/(&nbsp;|<([^>]+)>)/gi, '');
 
-// match an open < and anyting except > and then also remove >
+    // match an open < and anyting except > and then also remove >
+
+    // splitting string by space
+
+    let finalSummary = '';
+    let words;
+
+    words = stripperSummary.split(' ');
+    if (words.length > 20) {
+      finalSummary = words.slice(0, 20).join(' ') + '...';
+      return finalSummary;
+    } else {
+      return stripperSummary;
+    }
+  }
+
+  /* do with simple slice with letters
 
   if (stripperSummary.length > 300) {
     return stripperSummary.slice(0, 300) + '...';
   }
   return stripperSummary;
-};
-
-
-
-
-
+}; */
 
   /* how to transform IFeatureShows (type = array) into the data we want using map to return a 1 to 1.*/
-  
-  private transformToIFeatureShows(data: Array<IFeatureShowsData>): Array<IFeatureShows>{ /* data is parameter and IFeatureShowsData is a type reqiured by Typescript */
-    let shows = []
 
-  /* null guarding because network element could be often empty */
+  private transformToIFeatureShows(
+    data: Array<IFeatureShowsData>
+  ): Array<IFeatureShows> {
+    /* data is parameter and IFeatureShowsData is a type reqiured by Typescript */
+    let shows = [];
+
+    /* null guarding because network element could be often empty */
 
     for (let element of data) {
-      let networkElement = "";
+      let networkElement = '';
       let ratingElement = 0;
       let genreElement = [];
 
@@ -74,22 +88,20 @@ private trimSummary(summary: string) {
         genreElement = element.show.genres;
       }
 
-
-      shows.push(
-        {
-          id: element.show.id,
-          name: element.show.name,
-          language: element.show.language,
-          genres: element.show.genres,
-          status: element.show.status,
-          runtime: element.show.runtime,
-          rating: element.show.rating.average,
-          image: element.show.image.medium,
-          summary: this.trimSummary(element.show.summary),
-          network: networkElement
-        })
+      shows.push({
+        id: element.show.id,
+        name: element.show.name,
+        language: element.show.language,
+        genres: element.show.genres,
+        status: element.show.status,
+        runtime: element.show.runtime,
+        rating: element.show.rating.average,
+        image: element.show.image.medium,
+        summary: this.trimSummary(element.show.summary),
+        network: networkElement,
+      });
     }
 
-    return shows
+    return shows;
   }
 }
