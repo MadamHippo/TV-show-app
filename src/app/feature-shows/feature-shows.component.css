@@ -5,11 +5,10 @@
 
 }
 
-
 .show-name {
-  font-size: 3.5em;
+  font-size: 3em;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  margin: 30px auto;
+  margin: auto;
   text-transform: uppercase;
   font-weight: bold;
   padding-top: 40px;

@@ -4,10 +4,13 @@
 
 .mat-toolbar {
   background: #0092f3;
-  color: #fff
 }
 
-h1 { color: #7c795d; font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; margin: 0; }
+h1 { color: rgb(255, 255, 255); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 45px; font-weight: bold; line-height: 48px; margin: 0; }
+
+h2 { color: rgb(0, 0, 0); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 45px; font-weight: bold; line-height: 48px; margin: 0; }
 
 
 .toolbar-title {
@@ -15,7 +18,7 @@ h1 { color: #7c795d; font-family: 'Trocchi', serif; font-size: 45px; font-weight
 }
 
 .toolbar-title:hover {
-  background-color: #024470;
+  background-color: #2a3dad;
 }
 
 .todays-shows {
@@ -25,6 +28,6 @@ h1 { color: #7c795d; font-family: 'Trocchi', serif; font-size: 45px; font-weight
 
 .logo {
   height: auto;
-  width: 55px;
+  width: 75px;
 }
 
