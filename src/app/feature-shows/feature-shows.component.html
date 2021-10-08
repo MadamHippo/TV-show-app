@@ -4,12 +4,12 @@
       <mat-card><span>{{show.name}}</span></mat-card>
     </div>
     <div class="show-details">
-      <span>Runtime: {{show.runtime  + " minutes"}} | <mat-icon aria-hidden="false" aria-label="star" color="primary">star</mat-icon> Show Rating: {{"IMDB: " + show.rating + "/10"}} | 
-        Genre: <div *ngFor="let genre of show.genres">{{genre}}</div>
-         </span>
+      <span>Runtime: {{show.runtime  + " minutes"}} | <mat-icon aria-hidden="false" aria-label="star" color="primary">star</mat-icon> IMDB Show Rating: {{+ show.rating + "/10"}}</span>
       <br>
       <br>
-      <span>Network: {{show.network}} | Language: {{show.language}} | Status: {{show.status}}</span></div>
+      <span>Network: {{show.network}} | Language: {{show.language}} | Status: {{show.status}}</span>
+      <p><p><span> Genre:<div *ngFor="let genre of show.genres">{{genre}}</div>
+      </span></div>
     <div>
       <img [src]='show.image'>
     </div>

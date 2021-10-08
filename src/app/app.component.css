@@ -10,7 +10,7 @@ h1 { color: rgb(255, 255, 255); font-family: Cambria, Cochin, Georgia, Times, 'T
   font-size: 45px; font-weight: bold; line-height: 48px; margin: 0; }
 
 h2 { color: rgb(0, 0, 0); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 45px; font-weight: bold; line-height: 48px; margin: 0; }
+    font-size: 45px; font-weight: bold; line-height: 48px; margin: 0; text-transform: uppercase;}
 
 
 .toolbar-title {
