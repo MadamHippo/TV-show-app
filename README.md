@@ -1,3 +1,26 @@
+
+# Live Demo
+
+Youtube: https://youtu.be/3ihFCt-TSVM
+
+# Summary
+
+Our first project for Kal Academy using Angular and Angular Materials. This was written in Typescript, HTML, and CSS.
+
+~
+
+We made an app called The TV Box using the Angular framework. Its main function is to fetch the user's show information based on their search query. We are getting up-to-date show information by hooking up service to TV Maze's API. 
+
+There are 3 subcomponents under the main app component: main page, show search, and feature shows (which is what show search returns)
+
+The service does the backend work to fetch the data from the API, map the data, filter the data by passing it through the shows-data.ts files and the app component passes it to the subcomponents to be shown. 
+
+The main page displays all new airing shows daily. You can search by keyword in the search box. Each show's summary can be expanded, this was made by using Angular material cards.
+
+The TV Box header will take you back to this main page. 
+
+We also added flex layout using Angular's flex layout module so it's both mobile and tablet friendly :)
+
 # TVShowApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.7.
