@@ -17,6 +17,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MainPageComponent } from './main-page/main-page.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -41,7 +42,9 @@ import { MainPageComponent } from './main-page/main-page.component';
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
-    MatExpansionModule
+    MatExpansionModule,
+    FlexLayoutModule
+
   ],
   providers: [ShowsService],
   bootstrap: [AppComponent]

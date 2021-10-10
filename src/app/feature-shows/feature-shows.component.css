@@ -1,17 +1,23 @@
 .container { 
   background-color: #30acfff8;
-  width: 50%;
+  width: 60%;
   margin: auto;
+  padding: 10px;
+}
+
+.main-content {
+ 
 
 }
 
 .show-name {
-  font-size: 3em;
+  font-size: 2em;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   margin: auto;
   text-transform: uppercase;
   font-weight: bold;
   padding-top: 40px;
+  padding-bottom: 30px;
 }
 
 img {

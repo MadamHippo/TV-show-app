@@ -12,15 +12,14 @@
     <app-show-search (searchEvent) ="doSearch($event)"></app-show-search>
   </div>
   <br>
-  
-  <mat-card color="primary">
+  <br>
     <div *ngIf="!displayTodayShows">
       <h2>Search results for {{currentSearchValue}}:</h2>
     </div>
+  <br>
 
     <app-feature-shows [current] = "currentSearch"></app-feature-shows>
-  </mat-card>
-
+<br>
   <div class="todays-shows">
     <div *ngIf="displayTodayShows">
       <br>
