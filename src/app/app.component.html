@@ -15,10 +15,10 @@
   <br>
     <div *ngIf="!displayTodayShows">
       <h2>Search results for {{currentSearchValue}}:</h2>
+      <app-feature-shows [current] = "currentSearch"></app-feature-shows>
     </div>
   <br>
 
-    <app-feature-shows [current] = "currentSearch"></app-feature-shows>
 <br>
   <div class="todays-shows">
     <div *ngIf="displayTodayShows">
