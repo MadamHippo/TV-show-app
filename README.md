@@ -1,3 +1,4 @@
+<img class ="mockup" src="assets/logo/KalAcademyTVProjectMockup.jpg" />
 
 # Live Demo
 
