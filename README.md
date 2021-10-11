@@ -4,7 +4,7 @@
 
 Youtube: https://youtu.be/3ihFCt-TSVM
 
-Part 2 (more random searches etc.):  https://www.youtube.com/watch?v=siAyrHgc7Gk
+Part 2 (more random searches etc.): https://youtu.be/siAyrHgc7Gk
 
 # Summary
 
