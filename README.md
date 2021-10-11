@@ -16,7 +16,7 @@ There are 3 subcomponents under the main app component: main page, show search, 
 
 The service does the backend work to fetch the data from the API, map the data, filter the data by passing it through the shows-data.ts files and the app component passes it to the subcomponents to be shown. 
 
-The main page displays all new airing shows daily. You can search by keyword in the search box. Each show's summary can be expanded, this was made by using Angular material cards.
+The main page displays all new airing shows daily. You can search by keyword in the search box. Each show's summary can be expanded, this was made by using Angular material cards. (Edit, oops I meant to say made with Angular cards AND Angular's expansion panel as well.)
 
 The TV Box header will take you back to this main page. 
 
