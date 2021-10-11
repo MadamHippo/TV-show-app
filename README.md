@@ -1,4 +1,4 @@
-![Image description](src\assets\logo\KalAcademyTVProjectMockup.jpg)
+![Image description](https://github.com/MadamHippo/TV-show-app/blob/main/src/assets/logo/KalAcademyTVProjectMockup.jpg)
 
 # Live Demo
 
