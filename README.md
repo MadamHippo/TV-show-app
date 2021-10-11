@@ -1,4 +1,4 @@
-<img class ="mockup" src="assets/logo/KalAcademyTVProjectMockup.jpg" />
+![Image description](src\assets\logo\KalAcademyTVProjectMockup.jpg)
 
 # Live Demo
 
