@@ -4,6 +4,8 @@
 
 Youtube: https://youtu.be/3ihFCt-TSVM
 
+Part 2 (more random searches etc.):  https://www.youtube.com/watch?v=siAyrHgc7Gk
+
 # Summary
 
 Our first project for Kal Academy using Angular and Angular Materials. This was written in Typescript, HTML, and CSS.
