@@ -8,7 +8,7 @@ Part 2 (more random searches etc.): https://youtu.be/siAyrHgc7Gk
 
 # Summary
 
-Our first project for Kal Academy using Angular and Angular Materials. This was written in Typescript, HTML, and CSS.
+The first project for CLIENT#1A using Angular and Angular Materials. This was written in Typescript, HTML, and CSS.
 
 We made an app called The TV Box using the Angular framework. Its main function is to fetch the user's show information based on their search query. We are getting up-to-date show information by hooking up service to TV Maze's API. 
 
